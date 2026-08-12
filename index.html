@@ -116,6 +116,7 @@
 
       .card {
         width: min(430px, 92vw);
+        height: 80%;
         min-height: 400px;
         padding: 30px 24px;
         border-radius: 30px;
@@ -414,6 +415,7 @@
       @media (max-width: 500px) {
         .card {
           width: min(340px, 90vw);
+          height: 80%;
           min-height: 350px;
           padding: 20px 16px;
           border-radius: 24px;
@@ -573,6 +575,21 @@
       @keyframes cardCelebrate {
         from { transform: scale(1); }
         to { transform: scale(1.03); }
+      }
+
+      /* ================================
+           BROKEN NO BUTTON
+         ================================= */
+
+      .no.broken {
+        background: #dc2626 !important;
+        box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+        animation: brokenShake 0.15s infinite alternate !important;
+      }
+
+      @keyframes brokenShake {
+        0% { transform: rotate(-5deg) scale(0.9); }
+        100% { transform: rotate(5deg) scale(0.9); }
       }
     </style>
   </head>
@@ -872,41 +889,66 @@
            NO BUTTON
         ================================= */
 
+      let noBtnBroken = false;
+
       function moveNoButton(mouseX = null, mouseY = null) {
         noAttempts++;
 
         const card = document.querySelector(".card");
         if (!card) return;
 
-        // Make button absolutely positioned inside the card (white box)
-        noButton.style.position = "absolute";
-        noButton.style.zIndex = "9999";
-
-        const cardWidth = card.offsetWidth;
-        const cardHeight = card.offsetHeight;
+        let minX, maxX, minY, maxY;
         const buttonWidth = noButton.offsetWidth || 85;
         const buttonHeight = noButton.offsetHeight || 48;
+        const padding = 20;
 
-        const padding = 20; // padding to prevent button from going outside the rounded corners
+        if (noBtnBroken) {
+          // If broken, button can go anywhere on the ENTIRE SCREEN (viewport)
+          noButton.style.position = "fixed";
+          noButton.style.zIndex = "99999";
+          noButton.classList.add("broken");
 
-        const minX = padding;
-        const maxX = cardWidth - buttonWidth - padding;
-        const minY = padding;
-        const maxY = cardHeight - buttonHeight - padding ; 
+          minX = padding;
+          maxX = window.innerWidth - buttonWidth - padding;
+          minY = padding;
+          maxY = window.innerHeight - buttonHeight - padding;
+
+          // Change button text to funny broken text
+          const brokenTexts = ["No 😢", "Ouch! 💥", "Stop! 🛑", "Error 404 ❌", "No Way! 🤪", "Glitch 👾", "Help! 🏃‍♂️", "Broken! 💔"];
+          noButton.textContent = brokenTexts[Math.floor(Math.random() * brokenTexts.length)];
+        } else {
+          // Normal behavior: constrained to stay inside the white box (card)
+          noButton.style.position = "absolute";
+          noButton.style.zIndex = "9999";
+
+          const cardWidth = card.offsetWidth;
+          const cardHeight = card.offsetHeight;
+
+          minX = padding;
+          maxX = cardWidth - buttonWidth - padding;
+          minY = padding;
+          maxY = cardHeight - buttonHeight - padding;
+        }
 
         let randomX = noButton.offsetLeft;
         let randomY = noButton.offsetTop;
 
-        // Convert mouse coordinates to card-relative coordinates
+        // Convert mouse coordinates to card-relative (or viewport-relative if broken)
         let mouseRelX = null;
         let mouseRelY = null;
         if (mouseX !== null && mouseY !== null) {
-          const cardRect = card.getBoundingClientRect();
-          mouseRelX = mouseX - cardRect.left;
-          mouseRelY = mouseY - cardRect.top;
+          if (noBtnBroken) {
+            // For fixed position, mouse coordinates are already clientX/clientY
+            mouseRelX = mouseX;
+            mouseRelY = mouseY;
+          } else {
+            const cardRect = card.getBoundingClientRect();
+            mouseRelX = mouseX - cardRect.left;
+            mouseRelY = mouseY - cardRect.top;
+          }
         }
 
-        // Loop to find a coordinate inside the card that is not near the mouse
+        // Loop to find a coordinate inside the boundaries that is not near the mouse
         for (let attempt = 0; attempt < 50; attempt++) {
           const testX = minX + Math.random() * Math.max(maxX - minX, 1);
           const testY = minY + Math.random() * Math.max(maxY - minY, 1);
@@ -925,8 +967,8 @@
           }
 
           // Avoid placing too close to its current position so it actually jumps
-          const curX = noButton.offsetLeft;
-          const curY = noButton.offsetTop;
+          const curX = noBtnBroken ? noButton.getBoundingClientRect().left : noButton.offsetLeft;
+          const curY = noBtnBroken ? noButton.getBoundingClientRect().top : noButton.offsetTop;
           const distPrev = Math.sqrt(Math.pow(testX - curX, 2) + Math.pow(testY - curY, 2));
           if (distPrev < 40 && attempt < 45) {
             continue;
@@ -943,31 +985,25 @@
         noButton.style.visibility = "visible";
         noButton.style.opacity = "1";
 
-        const messages = [
-          "Are you sure? 😏",
+        // Only update standard messages if not broken
+        if (!noBtnBroken) {
+          const messages = [
+            "Are you sure? 😏",
+            "Think again! 😂",
+            "Nice try! 😜",
+            "Nope! ❤️",
+            "You can't escape! 😈",
+            "Try again! 🥰",
+            "Come on... 😭",
+            "Really? 😂",
+            "Just say YES! ❤️",
+          ];
 
-          "Think again! 😂",
-
-          "Nice try! 😜",
-
-          "Nope! ❤️",
-
-          "You can't escape! 😈",
-
-          "Try again! 🥰",
-
-          "Come on... 😭",
-
-          "Really? 😂",
-
-          "Just say YES! ❤️",
-        ];
-
-        questionText.textContent =
-          messages[Math.min(noAttempts - 1, messages.length - 1)];
+          questionText.textContent =
+            messages[Math.min(noAttempts - 1, messages.length - 1)];
+        }
 
         const scale = Math.min(1 + noAttempts * 0.05, 1.5);
-
         yesButton.style.transform = `scale(${scale})`;
 
         // Small playful celebration if user keeps trying
@@ -1055,6 +1091,7 @@
 
       noButton.addEventListener("click", function (event) {
         event.preventDefault();
+        noBtnBroken = true;
         moveNoButton(event.clientX, event.clientY);
       });
 
@@ -1063,7 +1100,7 @@
          ================================= */
 
       window.addEventListener("resize", function () {
-        if (!stage2.classList.contains("hidden") && noButton.style.position === "absolute") {
+        if (!stage2.classList.contains("hidden") && (noButton.style.position === "absolute" || noButton.style.position === "fixed")) {
           moveNoButton();
         }
       });
@@ -1278,6 +1315,9 @@
         stage2.classList.remove("hidden");
 
         noAttempts = 0;
+        noBtnBroken = false;
+        noButton.classList.remove("broken");
+        noButton.textContent = "No 😢";
 
         noButton.style.position = "relative";
 
