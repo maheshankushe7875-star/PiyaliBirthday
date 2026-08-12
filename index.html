@@ -952,257 +952,172 @@
            MOVE NO BUTTON
         ================================= */
 
-        function moveNoButton() {
+        /* ================================
+   NO BUTTON
+================================ */
 
-            noAttempts++;
+function moveNoButton() {
 
+    noAttempts++;
 
-            /* -------------------------------
-               MESSAGES
-            -------------------------------- */
+    // Change message
+    questionText.textContent =
+        messages[
+            Math.min(
+                noAttempts - 1,
+                messages.length - 1
+            )
+        ];
 
-            const messages = [
+    // Make YES slightly bigger
+    const scale = Math.min(
+        1 + noAttempts * 0.05,
+        1.5
+    );
 
-                "Are you sure? 😏",
+    yesButton.style.transform =
+        `scale(${scale})`;
 
-                "Think again! 😂",
+    // Button dimensions
+    const buttonWidth =
+        noButton.offsetWidth;
 
-                "Nice try! 😜",
+    const buttonHeight =
+        noButton.offsetHeight;
 
-                "Nope! ❤️",
+    // Screen padding
+    const padding = 25;
 
-                "You can't escape! 😈",
+    // Safe screen area
+    const maxX =
+        window.innerWidth -
+        buttonWidth -
+        padding;
 
-                "Try again! 🥰",
+    const maxY =
+        window.innerHeight -
+        buttonHeight -
+        padding;
 
-                "Come on... 😭",
+    // Random position
+    const randomX =
+        padding +
+        Math.random() *
+        Math.max(maxX - padding, 1);
 
-                "Really? 😂",
+    const randomY =
+        padding +
+        Math.random() *
+        Math.max(maxY - padding, 1);
 
-                "Just say YES! ❤️"
+    // Enable and move No button
+    noButton.disabled = false;
 
-            ];
+    noButton.style.position = "fixed";
 
+    noButton.style.left =
+        Math.max(
+            padding,
+            Math.min(randomX, maxX)
+        ) + "px";
 
-            questionText.textContent =
-                messages[
-                    Math.min(
-                        noAttempts - 1,
-                        messages.length - 1
-                    )
-                ];
+    noButton.style.top =
+        Math.max(
+            padding,
+            Math.min(randomY, maxY)
+        ) + "px";
 
+    noButton.style.display = "block";
 
-            /* -------------------------------
-               MAKE YES BIGGER
-            -------------------------------- */
+    noButton.style.visibility = "visible";
 
-            const scale =
-                Math.min(
-                    1 + noAttempts * 0.05,
-                    1.5
-                );
+    noButton.style.opacity = "1";
 
-            yesButton.style.transform =
-                `scale(${scale})`;
-
-
-            /* -------------------------------
-               BUTTON SIZE
-            -------------------------------- */
-
-            const buttonWidth =
-                noButton.offsetWidth;
-
-            const buttonHeight =
-                noButton.offsetHeight;
-
-
-            /* -------------------------------
-               SAFE SCREEN AREA
-            -------------------------------- */
-
-            const padding = 20;
-
-            const maxX =
-                window.innerWidth -
-                buttonWidth -
-                padding;
-
-            const maxY =
-                window.innerHeight -
-                buttonHeight -
-                padding;
-
-
-            /* -------------------------------
-               CURRENT POSITION
-            -------------------------------- */
-
-            const rect =
-                noButton.getBoundingClientRect();
-
-            const currentX =
-                rect.left;
-
-            const currentY =
-                rect.top;
+    noButton.style.pointerEvents = "auto";
+}
 
 
-            /* -------------------------------
-               MOVE NEARBY
-            -------------------------------- */
+/* ================================
+   NO BUTTON CLICK
+================================ */
 
-            const moveDistance = 120;
+noButton.addEventListener(
+    "click",
+    function(event) {
 
+        event.preventDefault();
 
-            let newX =
-                currentX +
-                (Math.random() > 0.5 ? 1 : -1) *
-                (60 + Math.random() * moveDistance);
+        moveNoButton();
 
-
-            let newY =
-                currentY +
-                (Math.random() > 0.5 ? 1 : -1) *
-                (40 + Math.random() * 100);
+    }
+);
 
 
-            /* -------------------------------
-               KEEP INSIDE SCREEN
-            -------------------------------- */
+/* ================================
+   MOUSE COMES NEAR NO
+================================ */
 
-            newX =
-                Math.max(
-                    padding,
-                    Math.min(
-                        newX,
-                        maxX
-                    )
-                );
+document.addEventListener(
+    "mousemove",
+    function(event) {
 
+        if (
+            stage2.classList.contains("hidden")
+        ) {
+            return;
+        }
 
-            newY =
-                Math.max(
-                    padding,
-                    Math.min(
-                        newY,
-                        maxY
-                    )
-                );
+        const rect =
+            noButton.getBoundingClientRect();
 
+        const centerX =
+            rect.left +
+            rect.width / 2;
 
-            /* -------------------------------
-               FIXED POSITION
-            -------------------------------- */
+        const centerY =
+            rect.top +
+            rect.height / 2;
 
-            noButton.style.position =
-                "fixed";
+        const distanceX =
+            event.clientX - centerX;
 
-            noButton.style.left =
-                newX + "px";
+        const distanceY =
+            event.clientY - centerY;
 
-            noButton.style.top =
-                newY + "px";
+        const distance =
+            Math.sqrt(
+                distanceX * distanceX +
+                distanceY * distanceY
+            );
 
-            noButton.style.display =
-                "block";
+        // Move when mouse gets close
+        if (distance < 100) {
 
-            noButton.style.visibility =
-                "visible";
-
-            noButton.style.opacity =
-                "1";
+            moveNoButton();
 
         }
 
-
-        /* ================================
-           DESKTOP
-        ================================= */
-
-        document.addEventListener(
-            "mousemove",
-            function (event) {
-
-                if (
-                    stage2.classList.contains(
-                        "hidden"
-                    )
-                ) {
-
-                    return;
-                }
+    }
+);
 
 
-                const rect =
-                    noButton.getBoundingClientRect();
+/* ================================
+   MOBILE TOUCH
+================================ */
 
+noButton.addEventListener(
+    "touchstart",
+    function(event) {
 
-                const centerX =
-                    rect.left +
-                    rect.width / 2;
+        event.preventDefault();
 
+        moveNoButton();
 
-                const centerY =
-                    rect.top +
-                    rect.height / 2;
-
-
-                const distanceX =
-                    event.clientX -
-                    centerX;
-
-
-                const distanceY =
-                    event.clientY -
-                    centerY;
-
-
-                const distance =
-                    Math.sqrt(
-                        distanceX * distanceX +
-                        distanceY * distanceY
-                    );
-
-
-                /*
-                    IMPORTANT:
-
-                    Smaller number =
-                    button moves more often.
-
-                    140px makes it
-                    harder to catch.
-                */
-
-                if (distance < 140) {
-
-                    moveNoButton();
-
-                }
-
-            }
-        );
-
-
-        /* ================================
-           MOBILE
-        ================================= */
-
-        noButton.addEventListener(
-            "touchstart",
-            function (event) {
-
-                event.preventDefault();
-
-                moveNoButton();
-
-            },
-            {
-                passive: false
-            }
-        );
+    },
+    {
+        passive: false
+    }
+);
 
 
         /* ================================
