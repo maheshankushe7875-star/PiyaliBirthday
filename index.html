@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,9 +24,11 @@
         }
 
         body {
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             min-height: 100vh;
 
             background:
@@ -34,11 +37,13 @@
                     #ffb6c1,
                     transparent 35%
                 ),
+
                 radial-gradient(
                     circle at 80% 80%,
                     #ffc0cb,
                     transparent 35%
                 ),
+
                 linear-gradient(
                     135deg,
                     #ff416c,
@@ -46,18 +51,22 @@
                 );
 
             position: relative;
+
             overflow: hidden;
         }
 
-        /* ================================
+
+        /* =========================================
            FLOWERS
-        ================================= */
+        ========================================= */
 
         body::before {
+
             content:
                 "🌸 🌷 🌺 🌼 🌸 🌷 🌺 🌼 🌸";
 
             position: fixed;
+
             top: 0;
             left: 0;
 
@@ -65,6 +74,7 @@
             height: 100%;
 
             display: flex;
+
             justify-content: space-around;
             align-items: flex-start;
 
@@ -86,7 +96,9 @@
                 alternate;
         }
 
+
         body::after {
+
             content:
                 "🌷 🌸 🌼 🌺 🌷 🌸 🌼 🌺";
 
@@ -108,6 +120,7 @@
             z-index: 0;
         }
 
+
         @keyframes flowersFloat {
 
             from {
@@ -120,9 +133,10 @@
 
         }
 
-        /* ================================
+
+        /* =========================================
            BACKGROUND HEARTS
-        ================================= */
+        ========================================= */
 
         .background-heart {
 
@@ -142,9 +156,11 @@
             z-index: 1;
         }
 
+
         @keyframes floatHeart {
 
             from {
+
                 transform:
                     translateY(0)
                     rotate(0deg);
@@ -167,9 +183,10 @@
 
         }
 
-        /* ================================
+
+        /* =========================================
            CARD
-        ================================= */
+        ========================================= */
 
         .card {
 
@@ -193,7 +210,6 @@
             display: flex;
 
             justify-content: center;
-
             align-items: center;
 
             text-align: center;
@@ -207,6 +223,7 @@
                 0.8s
                 ease;
         }
+
 
         @keyframes cardAppear {
 
@@ -228,13 +245,15 @@
 
         }
 
+
         .stage {
             width: 100%;
         }
 
-        /* ================================
+
+        /* =========================================
            PHOTO
-        ================================= */
+        ========================================= */
 
         .birthday-photo {
 
@@ -262,6 +281,7 @@
                 ease;
         }
 
+
         @keyframes photoAppear {
 
             from {
@@ -282,9 +302,10 @@
 
         }
 
-        /* ================================
+
+        /* =========================================
            STAGE 1
-        ================================= */
+        ========================================= */
 
         .envelope {
 
@@ -298,6 +319,7 @@
                 infinite
                 ease-in-out;
         }
+
 
         @keyframes envelopeFloat {
 
@@ -318,6 +340,7 @@
 
         }
 
+
         h1 {
 
             color: #ff315d;
@@ -328,6 +351,7 @@
                 20px 0 10px;
         }
 
+
         p {
 
             color: #555;
@@ -336,6 +360,7 @@
 
             line-height: 1.5;
         }
+
 
         .main-button {
 
@@ -367,15 +392,17 @@
                 0.25s;
         }
 
+
         .main-button:hover {
 
             transform:
                 scale(1.08);
         }
 
-        /* ================================
+
+        /* =========================================
            STAGE 2
-        ================================= */
+        ========================================= */
 
         .question-heart {
 
@@ -386,6 +413,7 @@
                 1s
                 infinite;
         }
+
 
         @keyframes heartbeat {
 
@@ -416,6 +444,11 @@
 
         }
 
+
+        /* =========================================
+           BUTTON AREA
+        ========================================= */
+
         .buttons {
 
             margin-top: 35px;
@@ -423,15 +456,15 @@
             display: flex;
 
             justify-content: center;
-
             align-items: center;
 
             gap: 18px;
 
             position: relative;
 
-            min-height: 60px;
+            min-height: 65px;
         }
+
 
         button {
 
@@ -447,10 +480,12 @@
             font-weight: bold;
 
             cursor: pointer;
-
-            transition:
-                transform 0.2s;
         }
+
+
+        /* =========================================
+           YES BUTTON
+        ========================================= */
 
         .yes {
 
@@ -467,22 +502,6 @@
                 transform 0.25s ease;
         }
 
-        .no {
-
-            background:
-                #8b5cf6;
-
-            color: white;
-
-            position: relative;
-
-            z-index: 50;
-
-            transition:
-                left 0.18s ease,
-                top 0.18s ease,
-                transform 0.15s ease;
-        }
 
         .yes:hover {
 
@@ -490,15 +509,48 @@
                 scale(1.1);
         }
 
-        /* ================================
+
+        /* =========================================
+           NO BUTTON
+        ========================================= */
+
+        .no {
+
+            background:
+                #8b5cf6;
+
+            color: white;
+
+            position: fixed;
+
+            z-index: 9999;
+
+            cursor: pointer;
+
+            display: block;
+
+            visibility: visible;
+
+            opacity: 1;
+
+            pointer-events: auto;
+
+            transition:
+                left 0.12s ease,
+                top 0.12s ease;
+        }
+
+
+        /* =========================================
            STAGE 3
-        ================================= */
+        ========================================= */
 
         #stage3 {
 
             padding:
                 10px 0;
         }
+
 
         .celebration-heart {
 
@@ -509,6 +561,7 @@
                 1s
                 infinite;
         }
+
 
         @keyframes celebrationHeart {
 
@@ -535,6 +588,7 @@
 
         }
 
+
         .love-message {
 
             color:
@@ -544,6 +598,7 @@
 
             font-weight: bold;
         }
+
 
         .signature {
 
@@ -557,18 +612,20 @@
                 #777;
         }
 
-        /* ================================
+
+        /* =========================================
            HIDDEN
-        ================================= */
+        ========================================= */
 
         .hidden {
 
-            display: none;
+            display: none !important;
         }
 
-        /* ================================
+
+        /* =========================================
            CONFETTI
-        ================================= */
+        ========================================= */
 
         .confetti {
 
@@ -580,7 +637,7 @@
 
             height: 15px;
 
-            z-index: 100;
+            z-index: 10000;
 
             animation:
                 confettiFall
@@ -588,6 +645,7 @@
                 linear
                 forwards;
         }
+
 
         @keyframes confettiFall {
 
@@ -607,9 +665,10 @@
 
         }
 
-        /* ================================
+
+        /* =========================================
            MOBILE
-        ================================= */
+        ========================================= */
 
         @media (max-width: 500px) {
 
@@ -627,11 +686,13 @@
                 overflow-y: auto;
             }
 
+
             h1 {
 
                 font-size:
                     27px;
             }
+
 
             p {
 
@@ -639,11 +700,13 @@
                     16px;
             }
 
+
             .envelope {
 
                 font-size:
                     80px;
             }
+
 
             .question-heart {
 
@@ -651,16 +714,17 @@
                     70px;
             }
 
+
             button {
 
                 padding:
                     13px 22px;
             }
 
+
             .birthday-photo {
 
                 width: 100px;
-
                 height: 100px;
             }
 
@@ -674,9 +738,9 @@
 <body>
 
 
-    <!-- ================================
+    <!-- =========================================
          MUSIC
-    ================================= -->
+    ========================================= -->
 
     <audio
         id="birthdayMusic"
@@ -692,20 +756,21 @@
     </audio>
 
 
-    <!-- ================================
+    <!-- =========================================
          MAIN CARD
-    ================================= -->
+    ========================================= -->
 
     <div class="card">
 
 
-        <!-- ================================
+        <!-- =====================================
              STAGE 1
-        ================================= -->
+        ====================================== -->
 
         <div
             class="stage"
             id="stage1">
+
 
             <img
                 src="./birthday.jpeg"
@@ -714,16 +779,12 @@
 
 
             <div class="envelope">
-
                 💌
-
             </div>
 
 
             <h1>
-
                 Hey Piyali ❤️
-
             </h1>
 
 
@@ -759,9 +820,9 @@
         </div>
 
 
-        <!-- ================================
+        <!-- =====================================
              STAGE 2
-        ================================= -->
+        ====================================== -->
 
         <div
             class="stage hidden"
@@ -769,16 +830,12 @@
 
 
             <div class="question-heart">
-
                 ❤️
-
             </div>
 
 
             <h1>
-
                 Do You Still Love Me?
-
             </h1>
 
 
@@ -793,6 +850,7 @@
 
 
             <div class="buttons">
+
 
                 <button
                     class="yes"
@@ -812,14 +870,15 @@
 
                 </button>
 
+
             </div>
 
         </div>
 
 
-        <!-- ================================
+        <!-- =====================================
              STAGE 3
-        ================================= -->
+        ====================================== -->
 
         <div
             class="stage hidden"
@@ -827,16 +886,12 @@
 
 
             <div class="celebration-heart">
-
                 💖
-
             </div>
 
 
             <h1>
-
                 Piyali... 🥹❤️
-
             </h1>
 
 
@@ -886,18 +941,19 @@
     </div>
 
 
-    <!-- ================================
+    <!-- =========================================
          CONFETTI LIBRARY
-    ================================= -->
+    ========================================= -->
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 
     <script>
 
-        /* ================================
+
+        /* =========================================
            VARIABLES
-        ================================= */
+        ========================================= */
 
         const stage1 =
             document.getElementById("stage1");
@@ -921,18 +977,62 @@
             document.getElementById("birthdayMusic");
 
 
+        /* =========================================
+           NO BUTTON MESSAGES
+        ========================================= */
+
+        const messages = [
+
+            "Are you sure? 😏",
+
+            "Think again! 😂",
+
+            "Nice try! 😜",
+
+            "Nope! ❤️",
+
+            "You can't escape! 😈",
+
+            "Try again! 🥰",
+
+            "Come on... 😭",
+
+            "Really? 😂",
+
+            "Just say YES! ❤️",
+
+            "Still trying? 😂",
+
+            "No is not an option! 😜",
+
+            "You have to catch me! ❤️",
+
+            "Almost! 😏",
+
+            "I will keep running! 😂",
+
+            "Just press YES! 🥹❤️"
+
+        ];
+
+
         let noAttempts = 0;
 
+        let lastMoveTime = 0;
 
-        /* ================================
+
+        /* =========================================
            OPEN QUESTION
-        ================================= */
+        ========================================= */
 
         function openQuestion() {
 
+
+            /* Start music */
+
             music.currentTime = 0;
 
-            music.play().catch(function (error) {
+            music.play().catch(function(error) {
 
                 console.log(
                     "Music could not start:",
@@ -941,192 +1041,414 @@
 
             });
 
+
+            /* Switch stages */
+
             stage1.classList.add("hidden");
 
             stage2.classList.remove("hidden");
 
-        }
+
+            /* Reset No button */
+
+            noAttempts = 0;
+
+            yesButton.style.transform =
+                "scale(1)";
 
 
-        /* ================================
-           MOVE NO BUTTON
-        ================================= */
-
-        /* ================================
-   NO BUTTON
-================================ */
-
-function moveNoButton() {
-
-    noAttempts++;
-
-    // Change message
-    questionText.textContent =
-        messages[
-            Math.min(
-                noAttempts - 1,
-                messages.length - 1
-            )
-        ];
-
-    // Make YES slightly bigger
-    const scale = Math.min(
-        1 + noAttempts * 0.05,
-        1.5
-    );
-
-    yesButton.style.transform =
-        `scale(${scale})`;
-
-    // Button dimensions
-    const buttonWidth =
-        noButton.offsetWidth;
-
-    const buttonHeight =
-        noButton.offsetHeight;
-
-    // Screen padding
-    const padding = 25;
-
-    // Safe screen area
-    const maxX =
-        window.innerWidth -
-        buttonWidth -
-        padding;
-
-    const maxY =
-        window.innerHeight -
-        buttonHeight -
-        padding;
-
-    // Random position
-    const randomX =
-        padding +
-        Math.random() *
-        Math.max(maxX - padding, 1);
-
-    const randomY =
-        padding +
-        Math.random() *
-        Math.max(maxY - padding, 1);
-
-    // Enable and move No button
-    noButton.disabled = false;
-
-    noButton.style.position = "fixed";
-
-    noButton.style.left =
-        Math.max(
-            padding,
-            Math.min(randomX, maxX)
-        ) + "px";
-
-    noButton.style.top =
-        Math.max(
-            padding,
-            Math.min(randomY, maxY)
-        ) + "px";
-
-    noButton.style.display = "block";
-
-    noButton.style.visibility = "visible";
-
-    noButton.style.opacity = "1";
-
-    noButton.style.pointerEvents = "auto";
-}
+            questionText.textContent =
+                "After everything we've been through... be honest with me. ❤️";
 
 
-/* ================================
-   NO BUTTON CLICK
-================================ */
+            /*
+               IMPORTANT:
 
-noButton.addEventListener(
-    "click",
-    function(event) {
+               Put No button near the buttons
+               when Stage 2 first opens.
+            */
 
-        event.preventDefault();
+            setTimeout(function() {
 
-        moveNoButton();
+                placeNoButtonNearYes();
 
-    }
-);
-
-
-/* ================================
-   MOUSE COMES NEAR NO
-================================ */
-
-document.addEventListener(
-    "mousemove",
-    function(event) {
-
-        if (
-            stage2.classList.contains("hidden")
-        ) {
-            return;
-        }
-
-        const rect =
-            noButton.getBoundingClientRect();
-
-        const centerX =
-            rect.left +
-            rect.width / 2;
-
-        const centerY =
-            rect.top +
-            rect.height / 2;
-
-        const distanceX =
-            event.clientX - centerX;
-
-        const distanceY =
-            event.clientY - centerY;
-
-        const distance =
-            Math.sqrt(
-                distanceX * distanceX +
-                distanceY * distanceY
-            );
-
-        // Move when mouse gets close
-        if (distance < 100) {
-
-            moveNoButton();
+            }, 50);
 
         }
 
-    }
-);
+
+        /* =========================================
+           INITIAL NO BUTTON POSITION
+        ========================================= */
+
+        function placeNoButtonNearYes() {
 
 
-/* ================================
-   MOBILE TOUCH
-================================ */
-
-noButton.addEventListener(
-    "touchstart",
-    function(event) {
-
-        event.preventDefault();
-
-        moveNoButton();
-
-    },
-    {
-        passive: false
-    }
-);
+            const yesRect =
+                yesButton.getBoundingClientRect();
 
 
-        /* ================================
-           NO CLICK
-        ================================= */
+            const noWidth =
+                noButton.offsetWidth;
+
+
+            const noHeight =
+                noButton.offsetHeight;
+
+
+            let x =
+                yesRect.right + 18;
+
+
+            let y =
+                yesRect.top;
+
+
+            /*
+               If it doesn't fit on right,
+               put it on left.
+            */
+
+            if (
+                x + noWidth >
+                window.innerWidth - 20
+            ) {
+
+                x =
+                    yesRect.left -
+                    noWidth -
+                    18;
+            }
+
+
+            /*
+               Keep inside screen.
+            */
+
+            x =
+                Math.max(
+                    20,
+                    Math.min(
+                        x,
+                        window.innerWidth -
+                        noWidth -
+                        20
+                    )
+                );
+
+
+            y =
+                Math.max(
+                    20,
+                    Math.min(
+                        y,
+                        window.innerHeight -
+                        noHeight -
+                        20
+                    )
+                );
+
+
+            noButton.style.position =
+                "fixed";
+
+            noButton.style.left =
+                x + "px";
+
+            noButton.style.top =
+                y + "px";
+
+            noButton.style.display =
+                "block";
+
+            noButton.style.visibility =
+                "visible";
+
+            noButton.style.opacity =
+                "1";
+
+            noButton.style.pointerEvents =
+                "auto";
+
+            noButton.disabled =
+                false;
+
+        }
+
+
+        /* =========================================
+           INFINITE NO BUTTON MOVEMENT
+        ========================================= */
+
+        function moveNoButton() {
+
+
+            /*
+               Do nothing if Stage 2
+               is not active.
+            */
+
+            if (
+                stage2.classList.contains("hidden")
+            ) {
+
+                return;
+            }
+
+
+            /*
+               Prevent multiple mouse events
+               from firing at exactly the
+               same millisecond.
+
+               This DOES NOT limit the number
+               of times the button can move.
+            */
+
+            const now =
+                Date.now();
+
+
+            if (
+                now - lastMoveTime < 120
+            ) {
+
+                return;
+            }
+
+
+            lastMoveTime =
+                now;
+
+
+            /* Increase attempts */
+
+            noAttempts++;
+
+
+            /* =================================
+               CHANGE MESSAGE
+            ================================= */
+
+            questionText.textContent =
+                messages[
+                    Math.min(
+                        noAttempts - 1,
+                        messages.length - 1
+                    )
+                ];
+
+
+            /* =================================
+               MAKE YES BIGGER
+            ================================= */
+
+            const scale =
+                Math.min(
+                    1 + noAttempts * 0.04,
+                    1.6
+                );
+
+
+            yesButton.style.transform =
+                `scale(${scale})`;
+
+
+            /* =================================
+               BUTTON SIZE
+            ================================= */
+
+            const buttonWidth =
+                noButton.offsetWidth;
+
+            const buttonHeight =
+                noButton.offsetHeight;
+
+
+            /* =================================
+               SAFE SCREEN AREA
+            ================================= */
+
+            const padding =
+                20;
+
+
+            const maxX =
+                window.innerWidth -
+                buttonWidth -
+                padding;
+
+
+            const maxY =
+                window.innerHeight -
+                buttonHeight -
+                padding;
+
+
+            /* =================================
+               RANDOM POSITION
+            ================================= */
+
+            const randomX =
+                padding +
+                Math.random() *
+                Math.max(
+                    maxX - padding,
+                    1
+                );
+
+
+            const randomY =
+                padding +
+                Math.random() *
+                Math.max(
+                    maxY - padding,
+                    1
+                );
+
+
+            /* =================================
+               FORCE BUTTON ENABLED
+            ================================= */
+
+            noButton.disabled =
+                false;
+
+            noButton.style.display =
+                "block";
+
+            noButton.style.visibility =
+                "visible";
+
+            noButton.style.opacity =
+                "1";
+
+            noButton.style.pointerEvents =
+                "auto";
+
+            noButton.style.position =
+                "fixed";
+
+
+            /* =================================
+               MOVE BUTTON
+            ================================= */
+
+            noButton.style.left =
+                Math.max(
+                    padding,
+                    Math.min(
+                        randomX,
+                        maxX
+                    )
+                ) + "px";
+
+
+            noButton.style.top =
+                Math.max(
+                    padding,
+                    Math.min(
+                        randomY,
+                        maxY
+                    )
+                ) + "px";
+
+        }
+
+
+        /* =========================================
+           DESKTOP — MOUSE COMES NEAR
+        ========================================= */
+
+        document.addEventListener(
+            "mousemove",
+            function(event) {
+
+
+                /*
+                   Only active on Stage 2.
+                */
+
+                if (
+                    stage2.classList.contains("hidden")
+                ) {
+
+                    return;
+                }
+
+
+                /*
+                   Make sure button is visible.
+                */
+
+                if (
+                    noButton.offsetWidth === 0 ||
+                    noButton.offsetHeight === 0
+                ) {
+
+                    return;
+                }
+
+
+                const rect =
+                    noButton.getBoundingClientRect();
+
+
+                const centerX =
+                    rect.left +
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.top +
+                    rect.height / 2;
+
+
+                const distanceX =
+                    event.clientX -
+                    centerX;
+
+
+                const distanceY =
+                    event.clientY -
+                    centerY;
+
+
+                const distance =
+                    Math.sqrt(
+                        distanceX * distanceX +
+                        distanceY * distanceY
+                    );
+
+
+                /*
+                   IMPORTANT:
+
+                   Mouse within 120px =
+                   button escapes.
+
+                   This can happen infinitely.
+                */
+
+                if (
+                    distance < 120
+                ) {
+
+                    moveNoButton();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           NO BUTTON CLICK
+        ========================================= */
 
         noButton.addEventListener(
             "click",
-            function (event) {
+            function(event) {
 
                 event.preventDefault();
 
@@ -1136,18 +1458,84 @@ noButton.addEventListener(
         );
 
 
-        /* ================================
-           YES
-        ================================= */
+        /* =========================================
+           MOBILE TOUCH
+        ========================================= */
+
+        noButton.addEventListener(
+            "touchstart",
+            function(event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =========================================
+           MOBILE POINTER
+        ========================================= */
+
+        noButton.addEventListener(
+            "pointerdown",
+            function(event) {
+
+                if (
+                    event.pointerType === "touch"
+                ) {
+
+                    event.preventDefault();
+
+                    moveNoButton();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           YES BUTTON
+        ========================================= */
 
         function sayYes() {
 
-            stage2.classList.add("hidden");
 
-            stage3.classList.remove("hidden");
+            /*
+               Hide Stage 2
+            */
+
+            stage2.classList.add(
+                "hidden"
+            );
 
 
-            /* BIG CENTER */
+            /*
+               Show Stage 3
+            */
+
+            stage3.classList.remove(
+                "hidden"
+            );
+
+
+            /*
+               Stop No button
+               interaction.
+            */
+
+            noButton.style.pointerEvents =
+                "none";
+
+
+            /* =================================
+               CENTER CONFETTI
+            ================================= */
 
             confetti({
 
@@ -1165,74 +1553,93 @@ noButton.addEventListener(
             });
 
 
-            /* LEFT */
+            /* =================================
+               LEFT CONFETTI
+            ================================= */
 
-            setTimeout(function () {
+            setTimeout(
+                function() {
 
-                confetti({
+                    confetti({
 
-                    particleCount: 220,
+                        particleCount: 220,
 
-                    spread: 110,
+                        spread: 110,
 
-                    startVelocity: 55,
+                        startVelocity: 55,
 
-                    origin: {
-                        x: 0.12,
-                        y: 0.65
-                    }
+                        origin: {
+                            x: 0.12,
+                            y: 0.65
+                        }
 
-                });
+                    });
 
-            }, 300);
-
-
-            /* RIGHT */
-
-            setTimeout(function () {
-
-                confetti({
-
-                    particleCount: 220,
-
-                    spread: 110,
-
-                    startVelocity: 55,
-
-                    origin: {
-                        x: 0.88,
-                        y: 0.65
-                    }
-
-                });
-
-            }, 600);
+                },
+                300
+            );
 
 
-            /* FINAL */
+            /* =================================
+               RIGHT CONFETTI
+            ================================= */
 
-            setTimeout(function () {
+            setTimeout(
+                function() {
 
-                confetti({
+                    confetti({
 
-                    particleCount: 250,
+                        particleCount: 220,
 
-                    spread: 130,
+                        spread: 110,
 
-                    startVelocity: 60,
+                        startVelocity: 55,
 
-                    origin: {
-                        x: 0.5,
-                        y: 0.45
-                    }
+                        origin: {
+                            x: 0.88,
+                            y: 0.65
+                        }
 
-                });
+                    });
 
-            }, 900);
+                },
+                600
+            );
 
+
+            /* =================================
+               FINAL CONFETTI
+            ================================= */
+
+            setTimeout(
+                function() {
+
+                    confetti({
+
+                        particleCount: 250,
+
+                        spread: 130,
+
+                        startVelocity: 60,
+
+                        origin: {
+                            x: 0.5,
+                            y: 0.45
+                        }
+
+                    });
+
+                },
+                900
+            );
+
+
+            /* Floating hearts */
 
             createHearts();
 
+
+            /* Falling confetti */
 
             setTimeout(
                 createConfetti,
@@ -1242,11 +1649,12 @@ noButton.addEventListener(
         }
 
 
-        /* ================================
+        /* =========================================
            FALLING CONFETTI
-        ================================= */
+        ========================================= */
 
         function createConfetti() {
+
 
             for (
                 let i = 0;
@@ -1254,8 +1662,11 @@ noButton.addEventListener(
                 i++
             ) {
 
+
                 const piece =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
 
                 piece.className =
@@ -1263,12 +1674,14 @@ noButton.addEventListener(
 
 
                 piece.style.left =
-                    Math.random() * 100 +
+                    Math.random() *
+                    100 +
                     "vw";
 
 
                 piece.style.animationDelay =
-                    Math.random() * 2 +
+                    Math.random() *
+                    2 +
                     "s";
 
 
@@ -1282,7 +1695,7 @@ noButton.addEventListener(
 
 
                 setTimeout(
-                    function () {
+                    function() {
 
                         piece.remove();
 
@@ -1295,11 +1708,12 @@ noButton.addEventListener(
         }
 
 
-        /* ================================
+        /* =========================================
            FLOATING HEARTS
-        ================================= */
+        ========================================= */
 
         function createHearts() {
+
 
             const hearts = [
 
@@ -1319,8 +1733,10 @@ noButton.addEventListener(
                 i++
             ) {
 
+
                 setTimeout(
-                    function () {
+                    function() {
+
 
                         const heart =
                             document.createElement(
@@ -1342,19 +1758,22 @@ noButton.addEventListener(
 
 
                         heart.style.left =
-                            Math.random() * 100 +
+                            Math.random() *
+                            100 +
                             "vw";
 
 
                         heart.style.fontSize =
                             20 +
-                            Math.random() * 30 +
+                            Math.random() *
+                            30 +
                             "px";
 
 
                         heart.style.animationDuration =
                             3 +
-                            Math.random() * 4 +
+                            Math.random() *
+                            4 +
                             "s";
 
 
@@ -1364,13 +1783,14 @@ noButton.addEventListener(
 
 
                         setTimeout(
-                            function () {
+                            function() {
 
                                 heart.remove();
 
                             },
                             7000
                         );
+
 
                     },
                     i * 100
@@ -1381,61 +1801,118 @@ noButton.addEventListener(
         }
 
 
-        /* ================================
+        /* =========================================
            RESTART
-        ================================= */
+        ========================================= */
 
         function restart() {
 
-            stage3.classList.add("hidden");
 
-            stage2.classList.add("hidden");
+            /*
+               Hide Stage 3
+            */
 
-            stage1.classList.remove("hidden");
+            stage3.classList.add(
+                "hidden"
+            );
 
 
-            noAttempts = 0;
+            /*
+               Hide Stage 2
+            */
+
+            stage2.classList.add(
+                "hidden"
+            );
 
 
-            noButton.style.position =
-                "relative";
+            /*
+               Show Stage 1
+            */
 
-            noButton.style.left = "";
+            stage1.classList.remove(
+                "hidden"
+            );
 
-            noButton.style.top = "";
 
-            noButton.style.display =
-                "block";
+            /*
+               Reset attempts
+            */
 
-            noButton.style.visibility =
-                "visible";
+            noAttempts =
+                0;
 
-            noButton.style.opacity =
-                "1";
 
+            lastMoveTime =
+                0;
+
+
+            /*
+               Reset Yes
+            */
 
             yesButton.style.transform =
                 "scale(1)";
 
 
+            /*
+               Reset question
+            */
+
             questionText.textContent =
                 "After everything we've been through... be honest with me. ❤️";
 
 
-            music.currentTime = 0;
+            /*
+               Reset No button
+            */
+
+            noButton.disabled =
+                false;
+
+
+            noButton.style.position =
+                "fixed";
+
+
+            noButton.style.display =
+                "block";
+
+
+            noButton.style.visibility =
+                "visible";
+
+
+            noButton.style.opacity =
+                "1";
+
+
+            noButton.style.pointerEvents =
+                "auto";
+
+
+            /*
+               Reset music
+            */
+
+            music.currentTime =
+                0;
 
         }
 
 
-        /* ================================
+        /* =========================================
            BACKGROUND HEARTS
-        ================================= */
+        ========================================= */
 
         setInterval(
-            function () {
+            function() {
+
 
                 const heart =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
 
                 heart.className =
@@ -1447,19 +1924,22 @@ noButton.addEventListener(
 
 
                 heart.style.left =
-                    Math.random() * 100 +
+                    Math.random() *
+                    100 +
                     "vw";
 
 
                 heart.style.fontSize =
                     15 +
-                    Math.random() * 25 +
+                    Math.random() *
+                    25 +
                     "px";
 
 
                 heart.style.animationDuration =
                     5 +
-                    Math.random() * 5 +
+                    Math.random() *
+                    5 +
                     "s";
 
 
@@ -1469,7 +1949,7 @@ noButton.addEventListener(
 
 
                 setTimeout(
-                    function () {
+                    function() {
 
                         heart.remove();
 
@@ -1477,18 +1957,19 @@ noButton.addEventListener(
                     10000
                 );
 
+
             },
             800
         );
 
 
-        /* ================================
+        /* =========================================
            PREVENT SCROLL
-        ================================= */
+        ========================================= */
 
         document.addEventListener(
             "wheel",
-            function (event) {
+            function(event) {
 
                 event.preventDefault();
 
@@ -1501,7 +1982,7 @@ noButton.addEventListener(
 
         document.addEventListener(
             "touchmove",
-            function (event) {
+            function(event) {
 
                 event.preventDefault();
 
@@ -1512,18 +1993,19 @@ noButton.addEventListener(
         );
 
 
-        /* ================================
+        /* =========================================
            DISABLE RIGHT CLICK
-        ================================= */
+        ========================================= */
 
         document.addEventListener(
             "contextmenu",
-            function (event) {
+            function(event) {
 
                 event.preventDefault();
 
             }
         );
+
 
     </script>
 
