@@ -122,12 +122,13 @@
         border-radius: 30px;
         background: rgba(255, 255, 255, 0.93);
         backdrop-filter: blur(15px);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 30px 80px rgba(11, 16, 43, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
+        background-color: color-mix(in srgb, rgb(194, 242, 255), transparent 80%);
         z-index: 10;
         animation: cardAppear 0.8s ease;
       }
@@ -281,11 +282,14 @@
 
       .yes {
         background: #22c55e;
+        border-radius: 25px;
+
         color: white;
       }
 
       .no {
         background: #8b5cf6;
+        border-radius: 25px;
         color: white;
         position: relative;
         z-index: 50;
