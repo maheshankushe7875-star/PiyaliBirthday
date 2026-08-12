@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Surprise ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ff416c;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            background: radial-gradient(circle at 20% 20%, #ffb6c1, transparent 35%), radial-gradient(circle at 80% 80%, #ffc0cb, transparent 35%), linear-gradient(135deg, #ff416c, #ff4b2b);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+            /* ================================
+           SOFT FLORAL BACKGROUND
+        ================================= */
+
+            body::before {
+                content: "🌸  🌷  🌺  🌼  🌸  🌷  🌺  🌼  🌸";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                padding-top: 15px;
+                font-size: 28px;
+                opacity: 0.35;
+                pointer-events: none;
+                z-index: 0;
+                animation: flowersFloat 8s ease-in-out infinite alternate;
+            }
+
+            body::after {
+                content: "🌷  🌸  🌼  🌺  🌷  🌸  🌼  🌺";
+                position: fixed;
+                bottom: 10px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                font-size: 25px;
+                opacity: 0.3;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+        @keyframes flowersFloat {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(15px);
+            }
+        }
+
+
+        /* ================================
+           BACKGROUND HEARTS
+        ================================= */
+
+        .background-heart {
+            position: fixed;
+            bottom: -50px;
+            pointer-events: none;
+            opacity: 0.6;
+            animation: floatHeart linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes floatHeart {
+
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.7;
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================
+           MAIN CARD
+        ================================= */
+
+        .card {
+            width: min(430px, 92vw);
+            min-height: 480px;
+            padding: 40px 28px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.93);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: cardAppear 0.8s ease;
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .stage {
+            width: 100%;
+        }
+
+
+        /* ================================
+           BIRTHDAY PHOTO
+        ================================= */
+
+        .birthday-photo {
+            display: block;
+            width: 135px;
+            height: 135px;
+            object-fit: cover;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
+            animation: photoAppear 1s ease;
+        }
+
+        @keyframes photoAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* ================================
+           STAGE 1
+        ================================= */
+
+        .envelope {
+            font-size: 100px;
+            cursor: pointer;
+            animation: envelopeFloat 2s infinite ease-in-out;
+        }
+
+        @keyframes envelopeFloat {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ff315d;
+            font-size: 32px;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .main-button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 14px;
+            background: #ff315d;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 49, 93, 0.3);
+            transition: 0.25s;
+        }
+
+            .main-button:hover {
+                transform: scale(1.08);
+            }
+
+
+        /* ================================
+           STAGE 2
+        ================================= */
+
+        .question-heart {
+            font-size: 85px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 27px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .yes {
+            background: #22c55e;
+            color: white;
+        }
+
+        .no {
+            background: #8b5cf6;
+            color: white;
+            position: relative;
+            z-index: 50;
+        }
+
+        .yes:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* ================================
+           STAGE 3
+        ================================= */
+
+        #stage3 {
+            padding: 10px 0;
+        }
+
+        .celebration-heart {
+            font-size: 110px;
+            animation: celebrationHeart 1s infinite;
+        }
+
+        @keyframes celebrationHeart {
+
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(5deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .love-message {
+            color: #ff315d;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .signature {
+            margin-top: 25px;
+            font-size: 16px;
+            color: #777;
+        }
+
+
+        /* ================================
+           HIDDEN
+        ================================= */
+
+        .hidden {
+            display: none;
+        }
+
+
+        /* ================================
+           FALLING CONFETTI
+        ================================= */
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 15px;
+            z-index: 100;
+            animation: confettiFall 4s linear forwards;
+        }
+
+        @keyframes confettiFall {
+
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 500px) {
+
+            .card {
+                width: 92vw;
+                min-height: 0;
+                max-height: 92vh;
+                padding: 25px 18px;
+                overflow-y: auto;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .envelope {
+                font-size: 80px;
+            }
+
+            .question-heart {
+                font-size: 70px;
+            }
+
+            button {
+                padding: 13px 22px;
+            }
+
+            .birthday-photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+
+    <audio id="birthdayMusic" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- MAIN CARD -->
+
+    <div class="card">
+
+
+        <!-- ================================
+             STAGE 1
+        ================================= -->
+
+        <div class="stage" id="stage1">
+
+            <img src="birthday.jpeg"
+                 class="birthday-photo"
+                 alt="Birthday photo">
+
+            <div class="envelope">
+                💌
+            </div>
+
+            <h1>
+                Hey Piyali ❤️
+            </h1>
+
+            <p>
+                Wishing you the happiest birthday, Piyali! 🎂❤️
+                <br><br>
+
+                I hope this little surprise makes your day
+                a little more special. 🥰
+
+                <br><br>
+
+                But before you go...
+                I have one more question for you. 👀❤️
+            </p>
+
+            <button class="main-button"
+                    onclick="openQuestion()">
+
+                There's One More Thing... 💌
+
+            </button>
+
+        </div>
+
+
+        <!-- ================================
+             STAGE 2
+        ================================= -->
+
+        <div class="stage hidden" id="stage2">
+
+            <div class="question-heart">
+                ❤️
+            </div>
+
+            <h1>
+                Do You Still Love Me?
+            </h1>
+
+            <p id="questionText">
+                After everything we've been through...
+                be honest with me. ❤️
+            </p>
+
+            <div class="buttons">
+
+                <button class="yes"
+                        id="yesButton"
+                        onclick="sayYes()">
+
+                    Yes ❤️
+
+                </button>
+
+                <button class="no"
+                        id="noButton">
+
+                    No 😢
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             STAGE 3
+        ================================= -->
+
+        <div class="stage hidden" id="stage3">
+
+            <div class="celebration-heart">
+                💖
+            </div>
+
+            <h1>
+                Piyali... 🥹❤️
+            </h1>
+
+            <p class="love-message">
+
+                You just made this birthday
+                <br>
+                a little more beautiful. 💕
+
+            </p>
+
+            <p>
+
+                Some moments are meant to be remembered,
+                and this one is definitely going to be one of mine. ❤️
+
+                <br><br>
+
+                Happy Birthday, Piyali! 🎂🌸
+
+            </p>
+
+            <div class="signature">
+                Always wishing you happiness ❤️
+            </div>
+
+            <button class="main-button"
+                    onclick="restart()">
+
+                Replay 🔄
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONFETTI LIBRARY -->
+    <!-- IMPORTANT: This comes BEFORE our JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+
+    <script>
+
+        /* ================================
+           VARIABLES
+        ================================= */
+
+        const stage1 =
+            document.getElementById("stage1");
+
+        const stage2 =
+            document.getElementById("stage2");
+
+        const stage3 =
+            document.getElementById("stage3");
+
+        const noButton =
+            document.getElementById("noButton");
+
+        const yesButton =
+            document.getElementById("yesButton");
+
+        const questionText =
+            document.getElementById("questionText");
+
+        const music =
+            document.getElementById("birthdayMusic");
+
+
+        let noAttempts = 0;
+
+
+        /* ================================
+           STAGE 1 → STAGE 2
+        ================================= */
+
+        function openQuestion() {
+
+            music.play().catch(function (error) {
+
+                console.log(
+                    "Music could not start:",
+                    error
+                );
+
+            });
+
+            stage1.classList.add("hidden");
+
+            stage2.classList.remove("hidden");
+
+        }
+
+
+        /* ================================
+           NO BUTTON
+        ================================= */
+
+        function moveNoButton() {
+
+            noAttempts++;
+
+            const buttonWidth =
+                noButton.offsetWidth;
+
+            const buttonHeight =
+                noButton.offsetHeight;
+
+            const padding = 20;
+
+            const maxX =
+                window.innerWidth -
+                buttonWidth -
+                padding;
+
+            const maxY =
+                window.innerHeight -
+                buttonHeight -
+                padding;
+
+            const randomX =
+                padding +
+                Math.random() *
+                Math.max(maxX - padding, 1);
+
+            const randomY =
+                padding +
+                Math.random() *
+                Math.max(maxY - padding, 1);
+
+            noButton.style.position = "fixed";
+
+            noButton.style.left =
+                randomX + "px";
+
+            noButton.style.top =
+                randomY + "px";
+
+            noButton.style.display = "block";
+
+            noButton.style.visibility = "visible";
+
+            noButton.style.opacity = "1";
+
+
+            const messages = [
+
+                "Are you sure? 😏",
+
+                "Think again! 😂",
+
+                "Nice try! 😜",
+
+                "Nope! ❤️",
+
+                "You can't escape! 😈",
+
+                "Try again! 🥰",
+
+                "Come on... 😭",
+
+                "Really? 😂",
+
+                "Just say YES! ❤️"
+
+            ];
+
+
+            questionText.textContent =
+                messages[
+                Math.min(
+                    noAttempts - 1,
+                    messages.length - 1
+                )
+                ];
+
+
+            const scale =
+                Math.min(
+                    1 + noAttempts * 0.05,
+                    1.5
+                );
+
+            yesButton.style.transform =
+                `scale(${scale})`;
+
+        }
+
+
+        /* ================================
+           DESKTOP NO BUTTON
+        ================================= */
+
+        document.addEventListener(
+            "mousemove",
+            function (event) {
+
+                if (
+                    stage2.classList.contains("hidden")
+                ) {
+                    return;
+                }
+
+                const rect =
+                    noButton.getBoundingClientRect();
+
+                const centerX =
+                    rect.left +
+                    rect.width / 2;
+
+                const centerY =
+                    rect.top +
+                    rect.height / 2;
+
+                const distanceX =
+                    event.clientX - centerX;
+
+                const distanceY =
+                    event.clientY - centerY;
+
+                const distance =
+                    Math.sqrt(
+                        distanceX * distanceX +
+                        distanceY * distanceY
+                    );
+
+                if (distance < 90) {
+
+                    moveNoButton();
+
+                }
+
+            }
+        );
+
+
+        /* ================================
+           MOBILE NO BUTTON
+        ================================= */
+
+        noButton.addEventListener(
+            "touchstart",
+            function (event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+
+            },
+            { passive: false }
+        );
+
+
+        /* ================================
+           NO CLICK SAFETY
+        ================================= */
+
+        noButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+
+            }
+        );
+
+
+        /* ================================
+           YES BUTTON
+        ================================= */
+
+        function sayYes() {
+
+            /* Show celebration immediately */
+
+            stage2.classList.add("hidden");
+
+            stage3.classList.remove("hidden");
+
+
+            /* ============================
+               BIG CENTER CRACKER
+            ============================ */
+
+            confetti({
+
+                particleCount: 300,
+
+                spread: 140,
+
+                startVelocity: 60,
+
+                origin: {
+                    x: 0.5,
+                    y: 0.65
+                }
+
+            });
+
+
+            /* ============================
+               LEFT CRACKER
+            ============================ */
+
+            setTimeout(function () {
+
+                confetti({
+
+                    particleCount: 220,
+
+                    spread: 110,
+
+                    startVelocity: 55,
+
+                    origin: {
+                        x: 0.12,
+                        y: 0.65
+                    }
+
+                });
+
+            }, 300);
+
+
+            /* ============================
+               RIGHT CRACKER
+            ============================ */
+
+            setTimeout(function () {
+
+                confetti({
+
+                    particleCount: 220,
+
+                    spread: 110,
+
+                    startVelocity: 55,
+
+                    origin: {
+                        x: 0.88,
+                        y: 0.65
+                    }
+
+                });
+
+            }, 600);
+
+
+            /* ============================
+               FINAL CENTER CRACKER
+            ============================ */
+
+            setTimeout(function () {
+
+                confetti({
+
+                    particleCount: 250,
+
+                    spread: 130,
+
+                    startVelocity: 60,
+
+                    origin: {
+                        x: 0.5,
+                        y: 0.45
+                    }
+
+                });
+
+            }, 900);
+
+
+            /* Floating hearts */
+
+            createHearts();
+
+
+            /* Falling confetti */
+
+            setTimeout(function () {
+
+                createConfetti();
+
+            }, 1200);
+
+        }
+
+
+        /* ================================
+           FALLING CONFETTI
+        ================================= */
+
+        function createConfetti() {
+
+            for (
+                let i = 0;
+                i < 80;
+                i++
+            ) {
+
+                const piece =
+                    document.createElement("div");
+
+                piece.className =
+                    "confetti";
+
+                piece.style.left =
+                    Math.random() * 100 + "vw";
+
+                piece.style.animationDelay =
+                    Math.random() * 2 + "s";
+
+                piece.style.transform =
+                    `rotate(${Math.random() * 360}deg)`;
+
+
+                document.body.appendChild(piece);
+
+
+                setTimeout(function () {
+
+                    piece.remove();
+
+                }, 6000);
+
+            }
+
+        }
+
+
+        /* ================================
+           FLOATING HEARTS
+        ================================= */
+
+        function createHearts() {
+
+            const hearts = [
+
+                "❤️",
+                "💖",
+                "💕",
+                "💗",
+                "💘",
+                "💝"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 30;
+                i++
+            ) {
+
+                setTimeout(function () {
+
+                    const heart =
+                        document.createElement("div");
+
+                    heart.className =
+                        "background-heart";
+
+                    heart.textContent =
+                        hearts[
+                        Math.floor(
+                            Math.random() *
+                            hearts.length
+                        )
+                        ];
+
+
+                    heart.style.left =
+                        Math.random() *
+                        100 +
+                        "vw";
+
+
+                    heart.style.fontSize =
+                        20 +
+                        Math.random() *
+                        30 +
+                        "px";
+
+
+                    heart.style.animationDuration =
+                        3 +
+                        Math.random() *
+                        4 +
+                        "s";
+
+
+                    document.body.appendChild(
+                        heart
+                    );
+
+
+                    setTimeout(function () {
+
+                        heart.remove();
+
+                    }, 7000);
+
+                }, i * 100);
+
+            }
+
+        }
+
+
+        /* ================================
+           RESTART
+        ================================= */
+
+        function restart() {
+
+            stage3.classList.add("hidden");
+
+            stage2.classList.remove("hidden");
+
+            noAttempts = 0;
+
+
+            noButton.style.position =
+                "relative";
+
+            noButton.style.left = "";
+
+            noButton.style.top = "";
+
+            noButton.style.display =
+                "block";
+
+            noButton.style.visibility =
+                "visible";
+
+            noButton.style.opacity =
+                "1";
+
+
+            yesButton.style.transform =
+                "scale(1)";
+
+
+            questionText.textContent =
+                "After everything we've been through... be honest with me. ❤️";
+
+        }
+
+
+        /* ================================
+           BACKGROUND HEARTS
+        ================================= */
+
+        setInterval(function () {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "background-heart";
+
+            heart.textContent =
+                "💕";
+
+
+            heart.style.left =
+                Math.random() *
+                100 +
+                "vw";
+
+
+            heart.style.fontSize =
+                15 +
+                Math.random() *
+                25 +
+                "px";
+
+
+            heart.style.animationDuration =
+                5 +
+                Math.random() *
+                5 +
+                "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(function () {
+
+                heart.remove();
+
+            }, 10000);
+
+        }, 800);
+
+
+        /* ================================
+           PREVENT PAGE SCROLL
+        ================================= */
+
+        document.addEventListener(
+            "wheel",
+            function (event) {
+
+                event.preventDefault();
+
+            },
+            { passive: false }
+        );
+
+
+        document.addEventListener(
+            "touchmove",
+            function (event) {
+
+                event.preventDefault();
+
+            },
+            { passive: false }
+        );
+
+
+        /* ================================
+           DISABLE RIGHT CLICK
+        ================================= */
+
+        document.addEventListener(
+            "contextmenu",
+            function (event) {
+
+                event.preventDefault();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
