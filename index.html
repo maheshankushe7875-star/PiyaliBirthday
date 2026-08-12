@@ -578,18 +578,30 @@
       }
 
       /* ================================
-           BROKEN NO BUTTON
+           SHATTERED NO BUTTON PIECES
          ================================= */
 
-      .no.broken {
-        background: #dc2626 !important;
-        box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
-        animation: brokenShake 0.15s infinite alternate !important;
+      .button-piece {
+        position: fixed;
+        background: #8b5cf6;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        overflow: hidden;
+        z-index: 10000;
+        pointer-events: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
       }
 
-      @keyframes brokenShake {
-        0% { transform: rotate(-5deg) scale(0.9); }
-        100% { transform: rotate(5deg) scale(0.9); }
+      .left-piece {
+        border-radius: 12px 0 0 12px;
+        border-right: 2px dashed rgba(255, 255, 255, 0.6);
+      }
+
+      .right-piece {
+        border-radius: 0 12px 12px 0;
       }
     </style>
   </head>
@@ -646,7 +658,7 @@
         ================================= -->
 
       <div class="stage hidden" id="stage1">
-        <img src="birthday.jpeg" class="birthday-photo" alt="Birthday photo" />
+        <img src="birthday.jpg" class="birthday-photo" alt="Birthday photo" />
 
         <div class="envelope">💌</div>
 
